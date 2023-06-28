@@ -189,8 +189,7 @@ public class UserController {
         user.setUname(registerRequest.getUser().getUname());
         user.setUphone(registerRequest.getUser().getUphone());
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-
-//        user.setUidentity("user");
+        user.setUidentity(registerRequest.getUser().getUidentity());
 //        System.out.println(user);
         int flag = userDao.insert(user);
         return new Result(flag == 1 ? Code.REGISTER_OK : Code.REGISTER_ERR, flag, flag == 1 ? "注册成功" : "注册失败，请重试！");

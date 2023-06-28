@@ -98,14 +98,16 @@ export default options;
 }
 
 .container {
-  background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  /* background-image: linear-gradient(to right, #fbc2eb, #a6c1ee); */
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
 .login-wrapper {
-  background-color: #fff;
+  background-color: #fbffff;
+  opacity: 0.9;
   width: 380px;
   height: 550px;
   border-radius: 15px;

@@ -81,7 +81,6 @@
                 <el-form-item label="身份" prop="uidentity">
                     <el-select v-model="user.uidentity" style="width: 218px" clearable>
                         <el-option value="student" label="学生"></el-option>
-                        <el-option value="sysAdmin" label="系统管理员"></el-option>
                         <el-option value="teacher" label="老师"></el-option>
                         <el-option value="admin" label="管理员"></el-option>
                     </el-select>

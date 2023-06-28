@@ -27,15 +27,17 @@
                             </template>
                         </el-menu-item>
                         <el-menu-item index="/home/borrow-manage" @click="$router.push('/home/borrow-manage')"
-                        v-if="isAdmin()">
+                        v-if="isAdmin2()">
                             <template slot="title"><i class="el-icon-coin"></i>
                                 借阅记录</template>
                         </el-menu-item>
-                        <el-menu-item index="/home/my-borrow" @click="$router.push('/home/my-borrow')">
+                        <el-menu-item index="/home/my-borrow" @click="$router.push('/home/my-borrow')"
+                        v-if="isNotSystem()">
                             <template slot="title"><i class="el-icon-coin"></i>
                                 我的借阅</template>
                         </el-menu-item>
-                        <el-menu-item index="/home/penalty" @click="$router.push('/home/penalty')">
+                        <el-menu-item index="/home/penalty" @click="$router.push('/home/penalty')"
+                          v-if="isNotSystem()">
                             <template slot="title"><i class="el-icon-money"></i>
                                 逾期欠款</template>
                         </el-menu-item>
@@ -67,10 +69,13 @@ const options = {
         // 判断是否管理员
         isAdmin(){
             // console.log(this.$store.state.user.uidentity);
+            return this.$store.state.user.uidentity == 'sysAdmin';
+        },
+        isAdmin2(){
             return this.$store.state.user.uidentity == 'admin';
         },
-        isSysAdmin(){
-            // return this.$store.
+        isNotSystem(){
+            return this.$store.state.user.uidentity != 'sysAdmin';
         },
         // 退出登录
         exit() {
